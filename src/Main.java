@@ -8,7 +8,7 @@ public class Main {
         File fileIn = new File(args[0]);
         ArrayList<String> arrayList = null;
 
-        arrayList = sc(fileIn);
+        arrayList = scwl(fileIn);
 
         for(Iterator iterator = arrayList.iterator(); iterator.hasNext();) {
             System.out.println(iterator.next());
@@ -36,6 +36,15 @@ public class Main {
     public static ArrayList<String> sc(File fileIn){
 
         SC sc = new SC();
+        return sc.read(fileIn);
+    }
+
+    // Scanner without loops as a single line
+    // sc.next = no such element.
+    // Unapplicable file reading
+    public static ArrayList<String> scwl(File fileIn){
+
+        SCWL sc = new SCWL();
         return sc.read(fileIn);
     }
 }
