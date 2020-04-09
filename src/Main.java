@@ -1,15 +1,21 @@
+// studied with
+// https://www.geeksforgeeks.org/different-ways-reading-text-file-java/
+
 import java.io.*;
-import java.util.ArrayList;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
         File fileIn = new File(args[0]);
-        ArrayList<String> arrayList = null;
+        List<String> arrayList = null;
 
-        arrayList = sc(fileIn);
+        arrayList = ss(fileIn);
 
         for(Iterator iterator = arrayList.iterator(); iterator.hasNext();) {
             System.out.println(iterator.next());
@@ -18,14 +24,14 @@ public class Main {
     }
 
     // BufferedReader
-    public static ArrayList<String> br(File fileIn){
+    public static List<String> br(File fileIn){
 
         BR br = new BR();
         return br.read(fileIn);
     }
 
     // FileReader
-    public static ArrayList<String> fr(File fileIn){
+    public static List<String> fr(File fileIn){
 
         FR fr = new FR();
         return fr.read(fileIn);
@@ -34,7 +40,7 @@ public class Main {
     // Scanner
     // hasNextLine = false on windows 10 default charset.
     // Unapplicable file reading
-    public static ArrayList<String> sc(File fileIn){
+    public static List<String> sc(File fileIn){
 
         SC sc = new SC();
         return sc.read(fileIn);
@@ -43,9 +49,31 @@ public class Main {
     // Scanner without loops as a single line
     // sc.next = no such element.
     // Unapplicable file reading
-    public static ArrayList<String> scwl(File fileIn){
+    public static List<String> scwl(File fileIn){
 
         SCWL sc = new SCWL();
         return sc.read(fileIn);
+    }
+
+    // All file line into List<>
+    public static List<String> ral(File fileIn){
+
+        List<String> list = Collections.emptyList();// create immutable list
+
+        try {
+            list = Files.readAllLines(Paths.get(fileIn.getName()), StandardCharsets.UTF_16);
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    // Read bytes into a single string
+    public static List<String> ss(File fileIn){
+        SS ss = new SS();
+        return ss.read(fileIn);
     }
 }

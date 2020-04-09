@@ -10,7 +10,7 @@ public class SC {
         ArrayList<String> arrayList = new ArrayList<>();
         Scanner sc = null;
         try {
-            sc = new Scanner(fileIn, StandardCharsets.UTF_8.toString());
+            sc = new Scanner(fileIn);
 
         } catch (FileNotFoundException e) {
 
@@ -21,7 +21,6 @@ public class SC {
         System.out.println(sc.hasNextLine());
         while(sc.hasNextLine()){
             text = sc.nextLine();
-            System.out.println(4444);
             arrayList.add(text);
         }
 
