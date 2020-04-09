@@ -12,10 +12,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        File fileIn = new File(args[0]);
+        File fileIn = new File("in22.txt");
         List<String> arrayList = null;
 
-        arrayList = ss(fileIn);
+        arrayList = dis(fileIn);
 
         for(Iterator iterator = arrayList.iterator(); iterator.hasNext();) {
             System.out.println(iterator.next());
@@ -75,5 +75,11 @@ public class Main {
     public static List<String> ss(File fileIn){
         SS ss = new SS();
         return ss.read(fileIn);
+    }
+
+    // DataInputStream
+    public static List<String> dis(File fileIn){
+        DIS dis = new DIS();
+        return dis.read(fileIn);
     }
 }
