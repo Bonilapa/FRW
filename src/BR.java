@@ -10,7 +10,7 @@ public class BR
 
         try {
 
-            br = new BufferedReader(new FileReader(in));
+            br = new BufferedReader(new FileReader(in), 1);
 
         } catch (FileNotFoundException e) {
 
@@ -22,8 +22,8 @@ public class BR
 
         do{
             try {
-
                 text = br.readLine();
+                System.out.println(text);
                 arrayList.add(text);
 
             } catch (IOException e) {
