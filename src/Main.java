@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class Main {
@@ -8,7 +9,7 @@ public class Main {
         File fileIn = new File(args[0]);
         ArrayList<String> arrayList = null;
 
-        arrayList = scwl(fileIn);
+        arrayList = sc(fileIn);
 
         for(Iterator iterator = arrayList.iterator(); iterator.hasNext();) {
             System.out.println(iterator.next());

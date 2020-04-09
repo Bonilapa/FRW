@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class SC {
         ArrayList<String> arrayList = new ArrayList<>();
         Scanner sc = null;
         try {
-            sc = new Scanner(fileIn);
+            sc = new Scanner(fileIn, StandardCharsets.UTF_8.toString());
 
         } catch (FileNotFoundException e) {
 
